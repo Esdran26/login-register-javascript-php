@@ -2,11 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+h1, h2 {
+    margin: 2rem;
+    font-weight: normal;
 }
 .container {
     display: grid;
     height: 100vh;
     grid-template-rows: 10% 80% 10%;
+    background-image: url(img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .welcome {
     display: grid;
@@ -17,4 +25,34 @@
 }
 .card-welcome {
     grid-column: 2 / 3;
+    background-color: rgba(236, 240, 241,0.95);
+    border-radius: 2rem;
+}
+.links {
+    display: inline-flex;
+    margin: 1rem;
+    margin-bottom: 2rem;
+}
+.link-register a {
+    text-decoration: none;
+    margin: 2rem 3rem;
+    padding: .5rem 1rem;
+    border-radius: .4rem;
+    color: rgba(9, 132, 227,1.0);
+}
+.link-register a:hover {
+    background-color: rgba(116, 185, 255,0.1);
+}
+.link-login a {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    border-radius: .4rem;
+    padding: .5rem 1rem;
+    margin: 2rem 3rem;
+    color: white;
+    background-color: rgba(9, 132, 227,1.0);
+}
+.link-login a:hover {
+    background-color: rgb(17, 120, 199);
+    box-shadow: 0 0 2px #34495e;
 }
