@@ -12,9 +12,7 @@ h1, h2 {
     display: grid;
     height: 100vh;
     grid-template-rows: 10% 80% 10%;
-    background-image: url(img/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: linear-gradient(to right, #130f40, #30336b);
 }
 .welcome {
     display: grid;

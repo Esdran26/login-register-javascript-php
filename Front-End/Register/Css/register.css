@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxygen', sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+}
+.divForm {
+    display: grid;
+    align-self: center;
+    justify-content: center;
+}
+.divForm h1 {
+    margin: 8px 0;
+}
+input[type=text], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    transition: all .5s ease-in-out;
+    outline: none;
+} 
+input[type="text"] {
+    width: 49.5%;
+}
+input[id="inputPassword"] {
+    margin-top: 2rem;
+}
+input[type=text]:focus, input[type="email"]:focus, input[type="password"]:focus  {
+    border: 3px solid #555;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 2rem;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+input[type="submit"]:hover {
+    border: 3px solid #555;
+}
+a[class="linkLogin"] {
+    color: rgba(9, 132, 227,1.0);
+}
+.textForm {
+    max-width: 400px;
+}
+.divBackground {
+    background-image: url(../Img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
