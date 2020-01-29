@@ -54,3 +54,31 @@ h1, h2 {
     background-color: rgb(17, 120, 199);
     box-shadow: 0 0 2px #34495e;
 }
+@media (max-width: 768px) {
+    .welcome {
+        grid-template-columns: 5% 90% 5%;
+    }
+    .link-register a, .link-login a{
+        margin: 2rem 2rem;
+    }
+}
+@media (max-width: 425px) {
+    .link-register a, .link-login a{
+        margin: 2rem 1rem;
+        padding: .5rem .5rem;
+    }
+    .welcome {
+        grid-template-columns: 0% 100% 0%;
+    }
+}
+@media (max-width: 375px) {
+    .link-register , .link-login {
+        margin: 2rem 1rem;
+        padding: .5rem .5rem;
+    }
+    .links {
+        display: block;
+        margin: 1rem 0 ;
+    }
+    
+}
