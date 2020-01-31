@@ -17,6 +17,9 @@
 .divForm h1 {
     margin: 8px 0;
 }
+input {
+    font-size: .9rem;
+}
 input[type=text], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 12px 20px;
@@ -45,6 +48,8 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
     border: 3px solid #555;
+    background-color: #555;
+    color: white;
 }
 a[class="linkLogin"] {
     color: rgba(9, 132, 227,1.0);
@@ -56,4 +61,26 @@ a[class="linkLogin"] {
     background-image: url(../Img/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+.textNames p {
+    width: 49.5%;
+}
+@media (max-width: 950px) {
+    .divBackground {
+        display: none;
+    }
+    .container {
+        grid-template-columns: .5fr 3fr .5fr;
+    }
+    .divForm {
+        grid-column: 2 / 3;
+    }
+}
+@media (max-width: 530px) {
+    .container {
+        grid-template-columns: .1fr 1fr .1fr;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
 }
