@@ -14,17 +14,17 @@
             <h1>Crea una cuenta de Correo</h1>
             <hr>
             <div class="textForm">
-                <form method="POST">
-                    <input type="text" name="name" id="inputName" autocapitalize="on" autofocus placeholder="Nombre" required>
-                    <input type="text" name="lastName" id="inputLastName" autocapitalize="on" placeholder="Apellidos" required>
+                <form method="POST" action="../../Back-End/Register/register.php">
+                    <input type="text" name="usName" id="inputName" autocapitalize="on" autofocus placeholder="Nombre" required>
+                    <input type="text" name="usLastName" id="inputLastName" autocapitalize="on" placeholder="Apellidos" required>
                     <br>
-                    <input type="email" name="email" id="inputEmail" autocapitalize="on" placeholder="Correo Electrónico" required>
+                    <input type="email" name="usEmail" id="inputEmail" autocomplete="off" autocapitalize="on" placeholder="Correo Electrónico" required>
                     <br>
-                    <small>Puedes utilizar letras y números.</small><br>
-                    <input type="password" name="password" id="inputPassword" required placeholder="Contraseña">
-                    <input type="password" name="verifyPassword" id="inputVerifyPassword" placeholder="Confirmar Contraseña" required><br>
+                    <small id="smallVerifyEmail">Puedes utilizar letras y números.</small><br>
+                    <input type="password" name="usPassword" id="inputPassword" required placeholder="Contraseña">
+                    <input type="password" name="usVerifyPassword" id="inputVerifyPassword" placeholder="Confirmar Contraseña" required><br>
                     <small class="smallPassword">Utiliza ocho caracteres como mínimo con una combinación de letras y números.</small><br>
-                    <input type="submit" value="Crea tu cuenta">
+                    <input type="submit" id="inputSubmit" value="Crea tu cuenta">
                     <small >Ya tienes una cuenta? <a class="linkLogin" href="../Login/login.html">Incia Sesión</a></small>
                 </form>
             </div>
@@ -33,5 +33,6 @@
 
         </div>
     </div>
+    <script src="Js/register.js"></script>
 </body>
 </html>
