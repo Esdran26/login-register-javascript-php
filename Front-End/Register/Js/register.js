@@ -1,11 +1,11 @@
-const inputSubmit = document.getElementById('inputSubmit');
-const smallVerifyEmail = document.getElementById('smallEmail');
-
 /* Función que utiliza Fetch API para recoger los datos de 
 verifyEmail.php hace un bucle en el que los correos que estén
 almacenados en la DB no se puedan registrar y mostrar mensajes 
 de error en la etiqueta "small" con un callback que limpia el 
 compo en concreto */
+
+const inputSubmit = document.getElementById('inputSubmit');
+const smallVerifyEmail = document.getElementById('smallEmail');
 
 let verifyEmail = () => {
     fetch('../../Back-End/Register/verifyEmail.php')
@@ -42,6 +42,9 @@ let smallVerifyInputEmail = (message, color) => {
 let inputVerifySubmit = (boolean) => {
     inputSubmit.disabled = boolean;
 }
+
+//Call Arrow Function
+document.addEventListener('DOMContentLoaded', verifyEmail);
 
 /* Obtener los campos de contraseña y otro campo para verificar la contraseña
 se muestran errores y se bloquea el botón de enviar si la contraseña es menor 
@@ -88,6 +91,25 @@ let smallVerifyInputPassword = (message, color) => {
     smallVerifyPassword.style.color = color;
 }
 
+/* Seleccionar los dos íconos que al dar click en alguno
+de ellos muestre el otro, creando una función que muestre
+en los campos de tipo contraseña a tipo text y viceversa */
 
-//Call Arrow Function
-document.addEventListener('DOMContentLoaded', verifyEmail);
+const eyeSlash = document.getElementById('eye-slash');
+const eye = document.getElementById('eye');
+
+eyeSlash.addEventListener('click', () => {
+    eyeSlash.style.display = 'none';
+    eye.style.display = 'block';
+
+    inputPassword.type = 'text';
+    inputVerifyPassword.type = 'text';
+});
+
+eye.addEventListener('click', () => {
+    eye.style.display = 'none';
+    eyeSlash.style.display = 'block';
+
+    inputPassword.type = 'password';
+    inputVerifyPassword.type = 'password';
+});

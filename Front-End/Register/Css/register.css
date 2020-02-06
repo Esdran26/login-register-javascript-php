@@ -16,6 +16,7 @@
 }
 .divForm h1 {
     margin: 8px 0;
+    text-align: center;
 }
 input {
     font-size: .9rem;
@@ -29,11 +30,29 @@ input[type=text], input[type="email"], input[type="password"] {
     transition: all .5s ease-in-out;
     outline: none;
 } 
-input[type="text"] {
+input[id="inputName"], input[id="inputLastName"] {
     width: 49.5%;
 }
 input[id="inputPassword"] {
     margin-top: 2rem;
+}
+.inputVerifyPassword {
+    position: relative;
+}
+.fa-eye-slash{
+    position: absolute;
+    cursor: pointer;
+    top: 25px;
+    right: 12px;
+    color: #555;
+}
+.fa-eye {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 25px;
+    right: 13px;
+    color: #555;
 }
 input[type=text]:focus, input[type="email"]:focus, input[type="password"]:focus  {
     border: 3px solid #555;
@@ -61,9 +80,6 @@ a[class="linkLogin"] {
     background-image: url(../Img/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
-.textNames p {
-    width: 49.5%;
 }
 @media (max-width: 950px) {
     .divBackground {
