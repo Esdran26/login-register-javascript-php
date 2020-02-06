@@ -1,4 +1,12 @@
-//Arrow Function
+const inputSubmit = document.getElementById('inputSubmit');
+const smallVerifyEmail = document.getElementById('smallEmail');
+
+/* Función que utiliza Fetch API para recoger los datos de 
+verifyEmail.php hace un bucle en el que los correos que estén
+almacenados en la DB no se puedan registrar y mostrar mensajes 
+de error en la etiqueta "small" con un callback que limpia el 
+compo en concreto */
+
 let verifyEmail = () => {
     fetch('../../Back-End/Register/verifyEmail.php')
     .then(res => {
@@ -6,31 +14,19 @@ let verifyEmail = () => {
     })
     .then(data => {
         let dataJson = JSON.parse(data);
-        const inputEmail = document.getElementById('inputEmail');
         dataJson.forEach(data => {
+            const inputEmail = document.getElementById('inputEmail');
             inputEmail.addEventListener('keyup', () => {
                 let inputEmailValue = inputEmail.value;
-
-                if(inputEmailValue.includes('@')) {
-                    if(inputEmailValue.includes('.com')) {
-                        if(inputEmailValue === data.us_email) {
-                            smallVerifyEmail('Este correo ya ha sido utilizado', '#c0392b');
-                            console.log(data.us_email);
-                            inputVerifySubmit(true);
-                        }
-                        else {
-                            smallVerifyEmail('Puedes utilizar letras y números.', 'black');
-                            inputVerifySubmit(false);
-                        }
-                    }
-                    else {
-                        smallVerifyEmail('Correo Inválido', '#c0392b');
-                        inputVerifySubmit(true);
-                    }
-                }
-                else {
-                    smallVerifyEmail('Correo Inválido', '#c0392b');
+                if(inputEmailValue === data.us_email) {
+                    smallVerifyInputEmail('Este correo ya ha sido utilizado', '#c0392b');
                     inputVerifySubmit(true);
+                    setTimeout(() => {
+                        smallVerifyEmail.innerText = `Puedes utilizar letras y números.`;
+                        smallVerifyEmail.style.color = 'black';
+                        inputSubmit.disabled = false;
+                        inputEmail.value = '';
+                    }, 1500);
                 }
             });
         });
@@ -39,14 +35,59 @@ let verifyEmail = () => {
         console.log('Error: ',err);
     });
 }
-let smallVerifyEmail = (message, color) => {
-    const smallVerifyEmail = document.getElementById('smallVerifyEmail');
+let smallVerifyInputEmail = (message, color) => {
     smallVerifyEmail.innerText = message;
     smallVerifyEmail.style.color = color;
 }
 let inputVerifySubmit = (boolean) => {
-    const inputSubmit = document.getElementById('inputSubmit');
     inputSubmit.disabled = boolean;
 }
+
+/* Obtener los campos de contraseña y otro campo para verificar la contraseña
+se muestran errores y se bloquea el botón de enviar si la contraseña es menor 
+a 8 carácteres y si el campo de verificar contraseña no es igual al campo 
+anterior */
+
+const smallVerifyPassword = document.getElementById('smallPassword');
+const inputPassword = document.getElementById('inputPassword');
+const inputVerifyPassword = document.getElementById('inputVerifyPassword');
+
+let inputPasswordValue = '',
+    inputVerifyPasswordValue = '';
+
+inputPassword.addEventListener('keyup', () => {
+    inputPasswordValue = inputPassword.value;
+    if(inputPasswordValue.length < 8) {
+        smallVerifyInputPassword('La contraseña debe ser mayor a ocho carácteres.', '#c0392b');
+        inputVerifySubmit(true);
+    }
+    else {
+        smallVerifyPassword.innerText = `Puedes utilizar letras y números.`;
+        smallVerifyPassword.style.color = 'black';
+    }
+});
+
+inputVerifyPassword.addEventListener('keyup', () => {
+    inputVerifyPasswordValue = inputVerifyPassword.value;
+    if(inputVerifyPasswordValue != inputPasswordValue) {
+        smallVerifyInputPassword('Las contraseñas no son iguales.', '#c0392b');
+        inputVerifySubmit(true);
+    }
+    else if(inputVerifyPasswordValue === inputPasswordValue) {
+        smallVerifyInputPassword('Utiliza ocho caracteres como mínimo con una combinación de letras y números.', 'black');
+        inputVerifySubmit(false);
+    }
+    else {
+        smallVerifyInputPassword('Lo siento, hubo un error interno, vuelve a cargar la página.', '#c0392b');
+        inputVerifySubmit(true);
+    }
+});
+
+let smallVerifyInputPassword = (message, color) => {
+    smallVerifyPassword.innerText = message;
+    smallVerifyPassword.style.color = color;
+}
+
+
 //Call Arrow Function
-verifyEmail();
+document.addEventListener('DOMContentLoaded', verifyEmail);
