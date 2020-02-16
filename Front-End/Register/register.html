@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/de6467cf36.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/register.css">
+    <title>Crea una cuenta de Correo</title>
+</head>
+<body>
+    <div class="container">
+        <div class="divForm">
+            <h1>Crea una cuenta de Correo</h1>
+            <hr>
+            <div class="textForm">
+                <form method="POST" action="../../Back-End/Register/register.php">
+                    <input type="text" name="usName" id="inputName" autocomplete="off" autocapitalize="on" autofocus placeholder="Nombre" required>
+                    <input type="text" name="usLastName" id="inputLastName" autocomplete="off" autocapitalize="on" placeholder="Apellidos" required>
+                    <br>
+                    <input type="email" name="usEmail" id="inputEmail" autocomplete="off" placeholder="Correo Electrónico" required>
+                    <br>
+                    <small id="smallEmail">Puedes utilizar letras y números.</small><br>
+                    <input type="password" name="usPassword" id="inputPassword" required placeholder="Contraseña">
+                    <div class="inputVerifyPassword">
+                        <input type="password" name="usVerifyPassword" id="inputVerifyPassword" placeholder="Confirmar Contraseña" required>
+                        <i id="eye-slash" class="far fa-eye-slash fa-1.5x fa-lg" aria-hidden="true"></i>
+                        <i id="eye" class="far fa-eye fa-1.5x fa-lg" aria-hidden="true"></i>
+                    </div><br>
+                    <small id="smallPassword" class="smallPassword">Utiliza ocho caracteres como mínimo con una combinación de letras y números.</small><br>
+                    <input type="submit" id="inputSubmit" value="Crea tu cuenta">
+                    <small >Ya tienes una cuenta? <a class="linkLogin" href="../Login/login.html">Incia Sesión</a></small>
+                </form>
+            </div>
+        </div>
+        <div class="divBackground">
+
+        </div>
+    </div>
+    <script src="Js/register.js"></script>
+</body>
+</html>
