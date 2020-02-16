@@ -20,19 +20,7 @@
             <th>Price</th>
             <th>Quantity</th>
         </tr>
-        
-        <!--<tr>
-            <td>1005105044</td>
-            <td>Lápiz</td>
-            <td>500</td>
-            <td><input type="number" name="quantity" id="quantity"></td>
-        </tr>
-        <tr>
-            <td>1005105045</td>
-            <td>Lapicero</td>
-            <td>1000</td>
-            <td><input type="number" name="quantity" id="quantity"></td>
-        </tr>-->
+
     </table>
 
     <script src="ui.js"></script>
