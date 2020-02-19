@@ -8,21 +8,7 @@
 </head>
 <body>
 
-    <form action="ui.php" method="post">
-        <input type="search" name="searchId" id="searchId">
-        <input type="submit" value="Buscar">
-    </form>
+    <h1>Bienvenido a mi Login y Registro con PHP y JavaScript</h1>
 
-    <table border="1" cellpadding="12">
-        <tr>
-            <th>Serial</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-        </tr>
-
-    </table>
-
-    <script src="ui.js"></script>
 </body>
 </html>
